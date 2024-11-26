@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return Notebook</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            font-size: 24px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+        .submit-btn {
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        .submit-btn:hover {
+            background: #45a049;
+        }
+        footer {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 20px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Return Notebook</h1>
+        </header>
+
+        <!-- Return Form -->
+        <form action="/return" method="POST">
+            <div class="form-group">
+                <label for="notebook-id">Notebook ID</label>
+                <input type="text" id="notebook-id" name="notebook_id" placeholder="Enter Notebook ID" required>
+            </div>
+            <div class="form-group">
+                <label for="user-id">User ID</label>
+                <input type="text" id="user-id" name="user_id" placeholder="Enter Your User ID" required>
+            </div>
+            <div class="form-group">
+                <label for="return-date">Return Date</label>
+                <input type="date" id="return-date" name="return_date" required>
+            </div>
+            <div class="form-group">
+                <label for="remarks">Remarks (optional)</label>
+                <textarea id="remarks" name="remarks" rows="4" placeholder="Add any comments or notes"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Return Notebook</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Notebook Borrowing System. All rights reserved.
+    </footer>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home Work 3</title>
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Login , registration, forgot password "./>
+<link href='http://fonts.googleapis.com/css?family=Cabin:400,500,600,700,400italic,500italic,600italic,700italic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<!--/start-login-one-->
+<div class="login-01">
+    <div class="one-login hvr-float-shadow">
+        <div class="one-login-head">
+            <img src="images/top-lock.png" alt=""/>
+            <h1>LOGIN</h1>
+            <span></span>
+        </div>
+        <form onsubmit="event.preventDefault(); login();">
+            <li>
+                <input id="username" type="text" class="text" placeholder="Username" required><a href="#" class="icon user"></a>
+            </li>
+            <li>
+                <input id="password" type="password" placeholder="Password" required><a href="#" class="icon lock"></a>
+            </li>
+            <div class="p-container">
+                <label class="checkbox"><input type="checkbox" name="checkbox" checked><i></i>Remember Me</label>
+                <h6><a href="ACCOUNT-RESET.html">Forgot Password ?</a> </h6>
+                <div class="clear"> </div>
+            </div>
+            <div class="submit">
+                <input type="submit" value="SIGN IN">
+            </div>
+            <div class="social-icons">
+                <p>Or you can Login with one of the following</p>
+                <ul class="soc_icons2">
+                    <li class="pic"><a href="#"><i class="icon_4"></i></a></li>
+                    <li class="pic"><a href="#"><i class="icon_5"></i></a></li>
+                    <li class="pic"><a href="#"><i class="icon_6"></i></a></li>
+                    <div class="clear"> </div>
+                </ul>
+            </div>
+            <h5>Don't have an account ?<a href="REGISTER.html"> Sign Up </a></h5>
+        </form>
+    </div>
+</div>
+
+<!-- Script สำหรับดึงข้อมูลจาก Google Sheets -->
+<script>
+const sheetAPI = "https://script.google.com/macros/s/AKfycbw3Zlsxa4WfvcmA52yTDwIEnIqK1nJfiipJDRs8zXO5LlqMqlzIvrIqpchkq-3GJKSK8Q/exec";
+
+async function login() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    try {
+        const response = await fetch(sheetAPI);
+        const data = await response.json();
+
+        const user = data.find(user => user.username === username && user.password === password);
+
+        if (user) {
+            alert("LOGIN.html");
+            // เปลี่ยนเส้นทางไปยังหน้าอื่น
+            window.location.href = "DASHBOARD.htm";
+        } else {
+            alert("Invalid Credentials");
+        }
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        alert("An error occurred. Please try again later.");
+    }
+}
+</script>
+</body>
+</html>
+
